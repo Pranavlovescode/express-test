@@ -16,7 +16,7 @@ const connection = mysql.createConnection({
 
 // App Middleware
 app.use(express.json());
-app.use(session({ secret: "keyboard cat", cookie: { maxAge: 6000 } }));
+app.use(session({ secret: "keyboard cat", cookie: { maxAge: 60000 } }));
 
 // custom middlewares
 app.use((req, res, next) => {
