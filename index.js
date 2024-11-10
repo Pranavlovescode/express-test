@@ -9,7 +9,7 @@ const port = 5000;
 const mysql = require("mysql2");
 const connection = mysql.createConnection({
   host: "localhost",
-  user: "root",
+  user: "pranav",
   password: "pranav",
   database: "express_test",
 });
@@ -69,33 +69,33 @@ app.listen(port, () => {
       return;
     }
     console.log("Connected to MySQL as ID " + connection.threadId);
-    // connection.query("INSERT INTO users (name, email) VALUES ('Pranav', 'pranav@gmail.com')", (err, result) => {
-    //   if (err) {
-    //     console.error('Error connecting to MySQL: ' + err.stack);
-    //     return;
-    //   }
-    //   console.log(result);
-    // });
-    // connection.query(
-    //   "CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), email VARCHAR(255))",
-    //   (err, result) => {
-    //     if (err) {
-    //       console.error("Error connecting to MySQL: " + err.stack);
-    //       return;
-    //     }
-    //     console.log(result);
-    //   }
-    // );
-    // connection.query(
-    //   "INSERT INTO users (name, email) VALUES ('Pranav', 'pranav@gmail.com')",
-    //   (err, result) => {
-    //     if (err) {
-    //       console.error("Error connecting to MySQL: " + err.stack);
-    //       return;
-    //     }
-    //     console.log(result);
-    //   }
-    // );
+    connection.query("INSERT INTO users (name, email) VALUES ('Pranav', 'pranav@gmail.com')", (err, result) => {
+      if (err) {
+        console.error('Error connecting to MySQL: ' + err.stack);
+        return;
+      }
+      console.log(result);
+    });
+    connection.query(
+      "CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), email VARCHAR(255))",
+      (err, result) => {
+        if (err) {
+          console.error("Error connecting to MySQL: " + err.stack);
+          return;
+        }
+        console.log(result);
+      }
+    );
+    connection.query(
+      "INSERT INTO users (name, email) VALUES ('Pranav', 'pranav@gmail.com')",
+      (err, result) => {
+        if (err) {
+          console.error("Error connecting to MySQL: " + err.stack);
+          return;
+        }
+        console.log(result);
+      }
+    );
     connection.query("SELECT * FROM users", (err, result) => {
       if (err) {
         console.error("Error connecting to MySQL: " + err.stack);
